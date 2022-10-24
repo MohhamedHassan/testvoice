@@ -1,14 +1,9 @@
-new
-
-<audio #test  controls="controls">
-  <source src="assets/all.ogg" type="audio/ogg">
-  <source src="assets/all.mp3" type="audio/mpeg">
-</audio>
-<hr>
-<hr>
-<button
-(ended)="play=false"
-(click)="playAudio()"
->
-  play audio
-</button>
+<ngx-audio-player 
+[playlist]="[{
+  title: '',
+  link: 'assets/all.ogg',
+  artist: 'Audio One Artist',
+  duration: 1000000
+}]"
+[autoPlay]="false" 
+    muted="muted"  [expanded]="true"></ngx-audio-player>
