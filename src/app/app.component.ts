@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,ElementRef,ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +9,13 @@ export class AppComponent {
   title = 'test-voice';
   play=false
   audio = new Audio('assets/all.ogg');
+  @ViewChild('test')
+  test!: ElementRef;
+
+
+
+
+
   playAudio() {
 
     if(this.play)this.audio.pause()
@@ -18,7 +25,11 @@ export class AppComponent {
 ngOnInit(): void {
   this.audio.onended = ()=> {
    this.play=false
-  };
-  
+ //  manageImageObjectsLevel();
+  }
+
+  this.test.nativeElement.addEventListener('ended', function() {
+  //  manageImageObjectsLevel();
+}).get(0).play();
 }
 }
