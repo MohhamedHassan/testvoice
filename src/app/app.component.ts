@@ -7,4 +7,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'test-voice';
+  play=false
+  audio = new Audio('assets/all.ogg');
+  playAudio() {
+
+    if(this.play)this.audio.pause()
+    else this.audio.play()
+    this.play=!this.play
+}
+ngOnInit(): void {
+  this.audio.onended = ()=> {
+   this.play=false
+  };
+  
+}
 }
